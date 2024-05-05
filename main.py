@@ -16,7 +16,8 @@ for index,row in df.iterrows():
         pdf.set_y(-32)
         pdf.set_font(family="Times", style="I", size=9)
         pdf.set_text_color(180, 180, 180)
-        pdf.cell(w=0,h=9, txt=row["Topic"], align="R")
+        pdf.cell(w=0,h=9,
+                 txt=f"{row['Topic']} | Page {i+1} of {row['Pages']} ", align="R")
         for lines in range(32,272,10):
             pdf.line(8, lines, 202, lines)
 
