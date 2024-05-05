@@ -11,11 +11,13 @@ for index,row in df.iterrows():
         pdf.set_font(family="Times", style="B", size=18)
         pdf.set_text_color(0, 0, 0)
         pdf.cell(w=0,h=12, txt=row["Topic"], align="C",ln=1, border="B" )
-        #pdf.line(8,21,202,21)
 
-        pdf.ln(240)
+        #pdf.ln(240)
+        pdf.set_y(-32)
         pdf.set_font(family="Times", style="I", size=9)
         pdf.set_text_color(180, 180, 180)
-        pdf.cell(w=0,h=12, txt=row["Topic"], align="R")
+        pdf.cell(w=0,h=9, txt=row["Topic"], align="R")
+        for lines in range(32,272,10):
+            pdf.line(8, lines, 202, lines)
 
 pdf.output("output.pdf")
